@@ -31,3 +31,31 @@ WHERE name <> 'Gabumon';
 -- All animals with a weight between 10.4kg and 17.3kg (including the animals with the weights that equals precisely 10.4kg or 17.3kg)
 SELECT * FROM animals
 WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
+-- Inside a transaction update the animals table by setting the species column to unspecified. Verify that change was made. Then roll back the change and verify that the species columns went back to the state before the transaction.
+BEGIN;
+UPDATE animals SET species = 'unspecified';
+SELECT * FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
+
+
+
+-- Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.
+BEGIN;
+UPDATE animals SET species='digimon' WHERE name LIKE '%mon';
+COMMIT;
+SELECT * FROM animals;
+
+
+-- Update the animals table by setting the species column to pokemon for all animals that don't have species already set
+BEGIN;
+UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
+COMMIT;
+SELECT * FROM animals;
+
+-- delete all records in the animals table, then roll back the transaction.
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+SELECT * FROM animals;

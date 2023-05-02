@@ -1,4 +1,4 @@
-# Vet-Clinic
+# Vet Clinic
 
 ## Getting Started
 

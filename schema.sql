@@ -1,6 +1,6 @@
 /* Database schema to keep the structure of entire database. */
 
-CREATE TABLE vet_clinic (
+CREATE TABLE animals (
 id SERIAL PRIMARY KEY,
 name VARCHAR(60) NOT NULL,
 date_of_birth DATE NULL,

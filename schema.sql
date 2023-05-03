@@ -8,3 +8,5 @@ escape_attempts INT NOT NULL,
 neutered BOOLEAN NOT NULL,
 weight_kg FLOAT NOT NULL
 );
+
+ALTER TABLE animals ADD COLUMN species VARCHAR(255);

@@ -17,7 +17,7 @@ VALUES
 ('Blossom', '1998-08-13', '3', TRUE, '17'),
 ('Ditto', '2022-05-14', '4', TRUE, '22');
 
-
+-- Foreign Keys
 
 INSERT INTO owners (full_name, age) VALUES
 ('Sam Smith', 34),

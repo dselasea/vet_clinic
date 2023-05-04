@@ -11,6 +11,8 @@ weight_kg FLOAT NOT NULL
 
 ALTER TABLE animals ADD COLUMN species VARCHAR(255);
 
+-- TABLE
+
 -- Create a table named owners with the following columns:
 -- id: integer (set it as autoincremented PRIMARY KEY)
 -- full_name: string

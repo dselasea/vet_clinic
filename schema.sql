@@ -45,3 +45,22 @@ ALTER TABLE animals DROP COLUMN IF EXISTS species;
 ALTER TABLE animals ADD COLUMN species_id INTEGER REFERENCES species(id);
 
 ALTER TABLE animals ADD COLUMN owner_id INTEGER REFERENCES owners(id);
+
+
+-- RELATIONSHIPS
+CREATE TABLE vets (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  age INTEGER,
+  date_of_graduation DATE
+);
+
+CREATE TABLE specializations (
+  id SERIAL PRIMARY KEY,
+  vet_id INTEGER REFERENCES vets(id),
+  species_id INTEGER REFERENCES species(id)
+);
+
+
+ALTER TABLE animals
+ADD CONSTRAINT animals_id_unique UNIQUE (id);

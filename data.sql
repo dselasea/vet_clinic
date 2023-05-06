@@ -50,3 +50,78 @@ SET owner_id =
         WHEN name IN ('Angemon', 'Boarmon') THEN (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
     END
 WHERE name IN ('Agumon', 'Gabumon', 'Pikachu', 'Devimon', 'Plantmon', 'Charmander', 'Squirtle', 'Blossom', 'Angemon', 'Boarmon');
+
+
+-- RELATIONSHIPS
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('William Tatcher', 45, '2000-04-23');
+
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('Maisy Smith', 26, '2019-01-17');
+
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('Stephanie Mendez', 64, '1981-05-04');
+
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('Jack Harkness', 38, '2008-06-08');
+
+
+-- Retrieving Vet IDs
+SELECT id FROM vets WHERE name = 'William Tatcher'; 
+SELECT id FROM vets WHERE name = 'Stephanie Mendez'; 
+SELECT id FROM vets WHERE name = 'Jack Harkness'; 
+
+-- Retrieving Species IDs
+SELECT id FROM species WHERE name = 'Pokemon';
+SELECT id FROM species WHERE name = 'Digimon';
+
+INSERT INTO specializations (vet_id, species_id)
+VALUES (1, 1); 
+
+INSERT INTO specializations (vet_id, species_id)
+VALUES (2, 1), (2, 2);
+
+INSERT INTO specializations (vet_id, species_id)
+VALUES (3, 2);
+
+
+-- Retrieving Vet IDs
+SELECT id FROM vets WHERE name = 'William Tatcher';
+SELECT id FROM vets WHERE name = 'Stephanie Mendez';
+SELECT id FROM vets WHERE name = 'Jack Harkness';
+SELECT id FROM vets WHERE name = 'Maisy Smith';
+
+-- Retrieving Animal IDs
+SELECT id FROM animals WHERE name = 'Agumon';
+SELECT id FROM animals WHERE name = 'Gabumon';
+SELECT id FROM animals WHERE name = 'Pikachu';
+SELECT id FROM animals WHERE name = 'Devimon';
+SELECT id FROM animals WHERE name = 'Charmander';
+SELECT id FROM animals WHERE name = 'Plantmon';
+SELECT id FROM animals WHERE name = 'Squirtle';
+SELECT id FROM animals WHERE name = 'Angemon';
+SELECT id FROM animals WHERE name = 'Boarmon';
+SELECT id FROM animals WHERE name = 'Blossom'; 
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES (1, 1, '2020-05-24'); 
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES (2, 1, '2020-07-22'); 
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES (3, 2, '2021-02-02'); 
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES (4, 3, '2020-01-05'), (4, 3, '2020-03-08'), (4, 3, '2020-05-14');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES (2, 4, '2021-05-04'); 
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES (3, 5, '2021-02-24'); 
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES (4, 6, '2019-12-21'), (1, 6, '2020-08-10'), (4, 6, '2021-04-07');
+
+
